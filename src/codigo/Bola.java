@@ -20,15 +20,15 @@ public class Bola extends GOval{
 	
 	public void muevete(Arkanoid ark){
 		//rebote con el suelo y el techo
-		if(getY() > ark.getHeight() || getY() < 0){
+		if(getY() > ark.getHeight() || getY() < 10){
 			dy = dy* -1;
 		}
 		//rebote con la pared derecha e izquierda
-		if(getX() > ark.getWidth() || getX() < 0){
+		if(getX() + getWidth() > ark.ANCHO_PANTALLA - 30 || getX() < 10){
 			dx = dx* -1;
 		}
 		
-		//chequeo la esquina izauierda de la bola
+		//chequeo la esquina izquierda de la bola
 		if(chequeaColision(getX(), getY(), ark)){
 			if(chequeaColision(getX() + getWidth(), getY(), ark)){
 				if(chequeaColision(getX(), getY() + getHeight(), ark)){
@@ -38,6 +38,7 @@ public class Bola extends GOval{
 				}
 			}
 		}
+		
 		
 		//mueve la bola en la direccion correcta
 		this.move(dx, dy);
@@ -60,11 +61,16 @@ public class Bola extends GOval{
 			else if(auxiliar.getX() + getWidth() == posx || auxiliar.getX() == posx){
 				dx = dx* -1;
 			}
+			
 			ark.remove(auxiliar);
 			noHaChocado = false;
 		}
 		
 		return noHaChocado;
+	}
+	private double distancia(double x, double y, double d, double y2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }//GOval
