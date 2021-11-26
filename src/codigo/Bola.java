@@ -61,16 +61,12 @@ public class Bola extends GOval{
 			else if(auxiliar.getX() + getWidth() == posx || auxiliar.getX() == posx){
 				dx = dx* -1;
 			}
-			
-			ark.remove(auxiliar);
+			ark.miMarcador.incrementaMarcador(1);
+			ark.remove(auxiliar);//borro ladrillo
 			noHaChocado = false;
 		}
 		
 		return noHaChocado;
-	}
-	private double distancia(double x, double y, double d, double y2) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 	
 }//GOval
