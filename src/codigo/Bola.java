@@ -54,7 +54,8 @@ public class Bola extends GOval{
 			noHaChocado = false;
 		}else if (auxiliar == null){ //si vale null es que no ha habia nada ahi
 			
-		}else if(auxiliar instanceof Ladrillo){//si es un ladrillo
+		}else if(auxiliar instanceof LadrilloGimage){//si es un ladrillo
+			dy = dy* -1;
 			if(auxiliar.getY() + getHeight() == posy || auxiliar.getY() == posy){
 				dy = dy* -1;
 			}
@@ -63,6 +64,7 @@ public class Bola extends GOval{
 			}
 			ark.miMarcador.incrementaMarcador(1);
 			ark.remove(auxiliar);//borro ladrillo
+			
 			noHaChocado = false;
 		}
 		

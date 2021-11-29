@@ -12,11 +12,11 @@ public class Cursor extends GRect{
 		setFillColor(c);
 	}
 	
+	//void para que se mueva el cursor
 	public void muevete(int anchoPantalla, int posX){
 		if(posX + getWidth() < anchoPantalla){
 			setLocation(posX, getY());
 		}	
 	}
-
-}
+}//GRect
 
