@@ -4,9 +4,9 @@ import java.awt.Image;
 
 import acm.graphics.GImage;
 
-public class LadrilloGimage extends GImage{
+public class Ladrillo extends GImage{
 
-	public LadrilloGimage(String name) {
+	public Ladrillo(String name) {
 		super(name);
 	}
 

@@ -16,7 +16,7 @@ public class Marcador extends GRect{
 		setFilled(true);
 		setFillColor(Color.BLACK);
 		texto.setLabel("Marcador = ");
-		texto.setColor(Color.WHITE);
+		texto.setColor(Color.MAGENTA);
 		//la fuente en windows 11 no funciona, pero debería funcionar en windows 10
 		//si está instalada en el sistema operativo, lo viste en clase Jorge(problema de windows 11).
 		//Además, es la fuente con los números de Arkanoid incluidos(Se llama iomanoid).

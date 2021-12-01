@@ -14,7 +14,7 @@ public class Arkanoid extends GraphicsProgram {
 	static final int ANCHO_PANTALLA = 520;
 	
 	Bola bola1 = new Bola(10, 10, Color.WHITE);
-	Cursor miCursor = new Cursor(0, 400, 60, 10, Color.BLACK);
+	Cursor miCursor = new Cursor("imagenes/barra-arkanoid.jpg", 0, 400);
 	
 	GImage historia = new GImage ("imagenes/historia.jpg");
 	GImage fondo = new GImage("imagenes/fondo.png");
@@ -39,7 +39,7 @@ public class Arkanoid extends GraphicsProgram {
 		miMarcador.addMarcador(this);//creamos el marcador.
 		while (true){
 			bola1.muevete(this); //paso el objeto arkanoid que se está ejecutando.
-			pause(5);
+			pause(2);
 			miCursor.muevete(ANCHO_PANTALLA - 30, (int) bola1.getX());
 		}
 	}
@@ -57,7 +57,7 @@ public class Arkanoid extends GraphicsProgram {
 		
 		for (int j=0; j<numeroLadrillos; j++){
 			for (int i=j; i<numeroLadrillos; i++){
-				LadrilloGimage miLadrillo = new LadrilloGimage("imagenes/ladrillo.jpg");
+				Ladrillo miLadrillo = new Ladrillo("imagenes/ladrillo.jpg");
 				
 				add(miLadrillo, ANCHO_LADRILLO*i - ANCHO_LADRILLO/2*j + desplazamiento_inicial_X, //pos X
 						ALTO_LADRILLO*j + desplazamiento_inicial_Y);
