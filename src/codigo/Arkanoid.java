@@ -39,8 +39,16 @@ public class Arkanoid extends GraphicsProgram {
 		miMarcador.addMarcador(this);//creamos el marcador.
 		while (true){
 			bola1.muevete(this); //paso el objeto arkanoid que se está ejecutando.
-			pause(2);
+			pause(0);
 			miCursor.muevete(ANCHO_PANTALLA - 30, (int) bola1.getX());
+            //Estos dos siguientes if, los niveles, creo que están mal configurados
+			//y cuando encuentre la forma correcta de usarlos, los cambiaré.
+			if(miMarcador.puntuacion == 66){
+				segundoNivel();
+			}
+			if(miMarcador.puntuacion == 176 || miMarcador.puntuacion == 121){
+				tercerNivel();
+			}	
 		}
 	}
 	
@@ -49,8 +57,8 @@ public class Arkanoid extends GraphicsProgram {
 	}
 	
 	
-	//creamos el void de la piramide de ladrillos.
-	private void creaPiramide(){
+	//creamos el void de la piramide de ladrillos. (Public para poder hacer segunda pirámide).
+	public void creaPiramide(){
 		int numeroLadrillos = 11;
 		int desplazamiento_inicial_X = 12;
 		int desplazamiento_inicial_Y = 15;
@@ -65,5 +73,33 @@ public class Arkanoid extends GraphicsProgram {
 		}
 	}
 	
+	//SIGUENTES DOS VOID, SON LOS NIVELES.
+	public void segundoNivel(){
+		int numeroLadrillos = 11;
+		int desplazamiento_inicial_X = 12;
+		int desplazamiento_inicial_Y = 15;
+		
+		for(int p=0; p<5; p++){
+			for(int x=0; x<numeroLadrillos; x++){
+			Ladrillo miLadrillo = new Ladrillo("imagenes/ladrillo.jpg");
+			add(miLadrillo, ANCHO_LADRILLO*x + desplazamiento_inicial_X, ALTO_LADRILLO*p + desplazamiento_inicial_Y);
+			}
+		}
+		
+	}
 	
-}
+	public void tercerNivel(){
+		int numeroLadrillos = 11;
+		int desplazamiento_inicial_X = 12;
+		int desplazamiento_inicial_Y = 15;
+		
+		for(int p=0; p<8; p++){
+			for(int x=0; x<numeroLadrillos; x++){
+			Ladrillo miLadrillo = new Ladrillo("imagenes/ladrillo.jpg");
+			add(miLadrillo, ANCHO_LADRILLO*x + desplazamiento_inicial_X, ALTO_LADRILLO*p + desplazamiento_inicial_Y);
+			}
+		}
+		
+	}
+	
+}//END
