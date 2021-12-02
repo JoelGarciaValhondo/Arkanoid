@@ -12,10 +12,14 @@ public class Arkanoid extends GraphicsProgram {
 	static final int ANCHO_LADRILLO = 44;
 	static final int ALTO_LADRILLO = 20;
 	static final int ANCHO_PANTALLA = 520;
+	int vidas = 3;//Vidas iniciales
 	
 	Bola bola1 = new Bola(10, 10, Color.WHITE);
 	Cursor miCursor = new Cursor("imagenes/barra-arkanoid.jpg", 0, 400);
 	
+	GImage fotoVidas = new GImage ("imagenes/vidas.jpg");
+	GImage gameOver = new GImage ("imagenes/gameOver.jpg");
+	GImage win = new GImage ("imagenes/win.jpg");
 	GImage segundoNivel = new GImage ("imagenes/segundoNivel.jpg");
 	GImage tercerNivel = new GImage ("imagenes/tercerNivel.jpg");
 	GImage historia = new GImage ("imagenes/historia.jpg");
@@ -41,8 +45,7 @@ public class Arkanoid extends GraphicsProgram {
 		miMarcador.addMarcador(this);//creamos el marcador.
 		while (true){
 			bola1.muevete(this); //paso el objeto arkanoid que se está ejecutando.
-			pause(0);
-			miCursor.muevete(ANCHO_PANTALLA - 30, (int) bola1.getX());
+			pause(1);
             //Estos dos siguientes if, los niveles, creo que están mal configurados
 			//y cuando encuentre la forma correcta de usarlos, los cambiaré.
 			if(miMarcador.puntuacion == 66){
@@ -56,7 +59,17 @@ public class Arkanoid extends GraphicsProgram {
 				waitForClick();
 				remove(tercerNivel);
 				tercerNivel();
-			}	
+			}
+			if(miMarcador.puntuacion == 443){
+				add(win);
+				waitForClick();
+				remove(win);
+			}
+			vidasFinal();//Quita una vida
+			//Cuando no queden vidas, game over.
+			if(vidas == 0){
+				add(gameOver);
+			}
 		}
 	}
 	
@@ -107,7 +120,17 @@ public class Arkanoid extends GraphicsProgram {
 			add(miLadrillo, ANCHO_LADRILLO*x + desplazamiento_inicial_X, ALTO_LADRILLO*p + desplazamiento_inicial_Y);
 			}
 		}
-		
+	}
+	
+	//Quitar 1 vida cada vez que toque abajo (empezamos con 3 vidas).
+	public void vidasFinal(){
+		if(bola1.getY() == 440){
+			vidas = vidas - 1;
+			add(fotoVidas);
+			waitForClick();
+			remove(fotoVidas);
+			bola1.setLocation(50, 100);
+		}		
 	}
 	
 }//END

@@ -75,4 +75,5 @@ public class Bola extends GOval{
 		return noHaChocado;
 	}
 	
+	
 }//GOval
