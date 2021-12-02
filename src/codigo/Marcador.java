@@ -27,7 +27,16 @@ public class Marcador extends GRect{
 	//suma el nº de puntos que se indica en la variable puntos 
 	//a la puntuacion actual.
 	public void incrementaMarcador(int puntos){
-		puntuacion = puntuacion + puntos; 
+		//Para que en los siguientes niveles aumente 2 o 3 puntos, dependiendo del nivel.
+		if(puntuacion <= 66){
+			puntuacion = puntuacion + puntos;
+		}
+		if(puntuacion > 66 && puntuacion <= 177){
+			puntuacion = puntuacion + puntos*2;
+		}
+		if(puntuacion > 177){
+			puntuacion = puntuacion + puntos*3;
+		}
 		texto.setLabel("Marcador = " + puntuacion);
 	}
 	

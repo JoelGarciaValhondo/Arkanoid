@@ -51,19 +51,17 @@ public class Bola extends GOval{
 		int random = 1;//int para hacer que los ladrillos se rompan o no (randomizador más abajo).
 		
 		if(auxiliar == ark.miCursor){ //si entra aquí es que choca con el cursor
-			dy = dy* -1;
+			dy *= -1;
 			noHaChocado = false;
 		}else if (auxiliar == null){ //si vale null es que no ha habia nada ahi
 			
 		}else if(auxiliar instanceof Ladrillo){//si es un ladrillo
-			dy = dy* -1;
-			if(auxiliar.getY() + getHeight() == posy || auxiliar.getY() == posy){
-				dy = dy* -1;
+			if(auxiliar.getX() >= posx || auxiliar.getX() <= posx){
+				dx *= -1;
 			}
-			else if(auxiliar.getX() + getWidth() == posx || auxiliar.getX() == posx){
-				dx = dx* -1;
+			if(auxiliar.getY() >= posy || auxiliar.getY() <= posy){
+				dy *= -1;
 			}
-			
 			//randomizador que dice si se rompe o no cada ladrillo.
 			if(random < Math.random()*4){
 				ark.miMarcador.incrementaMarcador(1);

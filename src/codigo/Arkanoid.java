@@ -16,6 +16,8 @@ public class Arkanoid extends GraphicsProgram {
 	Bola bola1 = new Bola(10, 10, Color.WHITE);
 	Cursor miCursor = new Cursor("imagenes/barra-arkanoid.jpg", 0, 400);
 	
+	GImage segundoNivel = new GImage ("imagenes/segundoNivel.jpg");
+	GImage tercerNivel = new GImage ("imagenes/tercerNivel.jpg");
 	GImage historia = new GImage ("imagenes/historia.jpg");
 	GImage fondo = new GImage("imagenes/fondo.png");
 	GRect fondoMarcador = new GRect(300, 600);
@@ -44,9 +46,15 @@ public class Arkanoid extends GraphicsProgram {
             //Estos dos siguientes if, los niveles, creo que están mal configurados
 			//y cuando encuentre la forma correcta de usarlos, los cambiaré.
 			if(miMarcador.puntuacion == 66){
+				add(segundoNivel);
+				waitForClick();
+				remove(segundoNivel);
 				segundoNivel();
 			}
-			if(miMarcador.puntuacion == 176 || miMarcador.puntuacion == 121){
+			if(miMarcador.puntuacion == 177){
+				add(tercerNivel);
+				waitForClick();
+				remove(tercerNivel);
 				tercerNivel();
 			}	
 		}
