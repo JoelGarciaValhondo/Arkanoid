@@ -45,7 +45,7 @@ public class Arkanoid extends GraphicsProgram {
 		miMarcador.addMarcador(this);//creamos el marcador.
 		while (true){
 			bola1.muevete(this); //paso el objeto arkanoid que se está ejecutando.
-			pause(1);
+			pause(4);
             //Estos dos siguientes if, los niveles, creo que están mal configurados
 			//y cuando encuentre la forma correcta de usarlos, los cambiaré.
 			if(miMarcador.puntuacion == 66){
@@ -62,8 +62,6 @@ public class Arkanoid extends GraphicsProgram {
 			}
 			if(miMarcador.puntuacion == 443){
 				add(win);
-				waitForClick();
-				remove(win);
 			}
 			vidasFinal();//Quita una vida
 			//Cuando no queden vidas, game over.
